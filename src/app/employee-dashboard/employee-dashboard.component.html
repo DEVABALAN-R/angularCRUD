@@ -1,0 +1,118 @@
+
+  <mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <mat-icon >supervised_user_circle</mat-icon><h1>EMPLOYEE DASHBOARD</h1>
+    
+    <button  (click)="whenclickadd()" style="margin-left: 50%;" type="button" class="btn-outline-dark" mat-raised-button   data-bs-toggle="modal" data-bs-target="#exampleModal" style="transform: translate(10%,-0%);">Add Employee</button>
+  
+  
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+  
+        <img class="avatar mat-elevation-z8" src="https://tse2.mm.bing.net/th?id=OIP.R1nVHmT1RRRMbcSBq5BZgAHaHX&pid=Api&P=0&w=300&h=300" />
+  
+        <h4 class="name">username</h4>
+        <p class="designation">Software Engineer</p>
+  
+        <mat-divider></mat-divider>
+  
+        <button mat-button class="menu-button">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>info</mat-icon>
+            <span>About</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/login">
+          <mat-icon>logout</mat-icon>
+          <span>logut</span>
+      </button>
+        <mat-divider></mat-divider>
+  
+        <button mat-button class="menu-button">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+  
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z100">
+         <!-- <summa></summa> -->
+       
+      <table class="table mt-3" >
+          <thead>
+              <tr>
+                  <th scope="col">Employee ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email ID</th>
+                  <th scope="col">PASSWORD</th>
+                  <th scope="col">action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let row of employeeData">
+              <td>{{row.id}}</td>
+              <td>{{ row.name }}</td>
+              <td>{{row.email}}</td>
+              <td>{{row.pwd}}</td>
+              <td><button mat-raised-button (click)="onEdit(row)" class="btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" >edit</button>&nbsp;
+              <button mat-raised-button type="button" class="btn-outline-dark mx-5" (click)="deleteEmployeeDetails(row)">delete</button></td>
+             </tr>
+          </tbody>
+      </table>
+    </div>
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+  
+        
+        <!-- Modal --> -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" id="cancel" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+        <form [formGroup]="formValue">
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <input type="text" formControlName="name"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ngModel>
+      
+                      
+                      <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Email ID</label>
+                          <input type="email" formControlName="email"  class="form-control" id="exampleInputPassword2" ngMode>
+                        </div>
+      
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">password</label>
+                          <input type="email" formControlName="pwd"  class="form-control" id="exampleInputPassword2" ngMode>
+                        </div>
+                             </div>
+                             
+                             <button type="button" class="btn btn-primary" *ngIf="showadd" (click)="postEmployeeDetails()" >add</button>
+                             <button type="button" class="btn btn-primary" *ngIf="showupdate"  (click)="updateEmployeeDetails()" >update</button>
+                            </form>
+              </div>
+            </div>
+          </div>
+        </div>
+   

@@ -1,0 +1,70 @@
+       .example-label {
+        color: rgb(58, 138, 241);
+        display: table-cell;
+        font-size: 14px;
+        margin-left: 8px;
+        min-width: 120px;
+      }
+      
+      .example-button-row {
+        color: rgb(82, 58, 170);
+        display: table-cell;
+        width: 490px;
+        justify-content: center;
+      }
+      
+      .example-button-row .mat-button-base {
+        margin: 8px 8px 8px 0;
+      }
+      
+      .example-flex-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      
+      .example-button-container {
+        display: flex;
+        justify-content: center;
+        width: 120px;
+      }
+      .card{
+        margin-top: 10px;
+        border: none;
+        width: 400px;
+        padding: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        /* background: rgb(42, 162, 241)0;
+        background: linear-gradient(90deg,rgb(42, 162, 241)0%,rgb(220, 235, 247)120%);
+        border-radius: 5px; */
+        line-height: 20px;
+
+        
+        backdrop-filter: blur(4px);
+        background-color:rgba(255,255,255,0.2);
+      
+      }
+
+      .card  h1, h6
+      {
+       
+        color:white;
+      }
+     
+      lable
+      {
+        color: white;
+      }
+      h1{
+        font-size: 50px;
+      }
+      body{
+        background-image: url('../../assets/bull.jpg.jpg');
+        background-size: cover;
+      }
+      .mat-raised-button{
+        background-color:#13d4e2;
+        }

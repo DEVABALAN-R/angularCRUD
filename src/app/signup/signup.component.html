@@ -1,0 +1,65 @@
+
+<body>
+<div class="container" @fade>
+    <div class="row">
+       <div class="col-md-6">
+           <div class="card">
+               
+                    <div class="text-center">
+                         <h1>Signup!</h1>
+                         <h6>fill details for signup</h6>
+                    </div>    
+                      <form [formGroup]="signupform" (ngSubmit)="signUp()">
+                        
+                    
+                            <div class="mb-3">
+                        <label style="color:white" for="exampleInputEmail1" class="form-label">Name:</label>
+                  <input type="text" formControlName="name"  
+                         class="form-control" 
+                         id="nameid">
+                         <span class="text-danger" *ngIf="signupform.controls['name'].dirty && signupform.hasError('required','name')">*name is required</span>
+                      </div>
+                
+                      <div class="mb-3">
+                        <label style="color:white" for="exampleInputPassword1" class="form-label">email adress</label>
+                            <input type="email" 
+                                       formControlName="email"  
+                                       class="form-control" 
+                                       id="pwdid">
+                                       <span class="text-danger" *ngIf="signupform.controls['email'].dirty && signupform.hasError('required','email')">*email is required</span>
+                                    </div>
+                      
+                      
+                      
+                      
+                       <div class="mb-3">
+                        <label style="color:white" for="exampleInputPassword1" class="form-label">mobile</label>
+                        <input type="number" 
+                               formControlName="mobile"   
+                               class="form-control" 
+                               id="pwdid">
+                               <span class="text-danger" *ngIf="signupform.controls['mobile'].dirty && signupform.hasError('required','mobile')">*mobile number is required</span>
+                            </div>
+                
+
+                      <div style="color:white" class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">new password:</label>
+                  <input type="password" 
+                         formControlName="pwd"  
+                         class="form-control" 
+                         id="pwdid">
+                         <span class="text-danger" *ngIf="signupform.controls['pwd'].dirty && signupform.hasError('required','pwd')">*password is required</span>
+                        </div>
+                         
+                         
+                         <div class="example-button-row">
+                         <button mat-raised-button color="primary"  [disabled]="!signupform.valid">signup</button>               
+                         </div>
+                         
+                          </form>
+                    <a  style="color:white" routerLink="/login">already signed up!?click here for login</a>
+                        </div>
+                </div>
+            </div>
+      </div>
+    </body>
